@@ -14,14 +14,18 @@ classApp.controller('weatherCtrl', function ($scope, $http) {
         var coordinates = response.data;
         vm.lat = coordinates.lat;
         vm.lon = coordinates.lon;
-        //var apiKey = "f25685044cab99c5424955a8456a6430"
-        
-        var openWeatherURL = "https://api.darksky.net/forecast/0959f17defe032b7f89403ad2834b56a/13.0833,80.2833";
+        var apiKey = "d09ed5268a212e0873b62f503e6fa146";
+
+        var openWeatherURL = "http://api.openweathermap.org/data/2.5/weather?lat="+vm.lat+"&lon="+vm.lon+"&appid="+apiKey;
 
         $http.get(openWeatherURL).then(function (response) {
             var wDetails = response.data;
-            vm.summary = wDetails.currently.summary;
-            vm.speed = wDetails.currently.windSpeed;
+            vm.description = wDetails.weather[0].description;
+            vm.speed =(2.237* wDetails.wind.speed).toFixed(1)+"mph";
+            vm.name=wDetails.name;
+            vm.temp=wDetails.main.temp;
+            vm.ftemp=(vm.temp*(9/5)-459.67).toFixed(1)+" (F)";
+            vm.ctemp=(vm.temp-273).toFixed(1)+" (C)";
         });
 
     });

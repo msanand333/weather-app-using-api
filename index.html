@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="controller.js"></script>
+    <link rel="stylesheet" href="myStyle.css">
+    <title>WeatherApp</title>
+</head>
+<body ng-app="myApp" ng-controller="weatherCtrl">
+    {{channelInfo.heading}}
+    {{channelInfo.subheading1}}
+    {{channelInfo.subheading2.name}}
+    {{lat}}
+    {{lon}}
+    {{summary}}
+    {{speed}}
+
+    
+</body>
+</html>

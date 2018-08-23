@@ -26,6 +26,25 @@ classApp.controller('weatherCtrl', function ($scope, $http) {
             vm.temp=wDetails.main.temp;
             vm.ftemp=(vm.temp*(9/5)-459.67).toFixed(1)+" (F)";
             vm.ctemp=(vm.temp-273).toFixed(1)+" (C)";
+            vm.icon="http://openweathermap.org/img/w/"+wDetails.weather[0].icon+".png";
+            
+            switch(vm.description){
+                case 'scattered clouds1':{
+                    vm.weatherBackground={
+                        "background":"url('http://avante.biz/wp-content/uploads/Clouds-Desktop-Wallpapers/Clouds-Desktop-Wallpapers-045.jpg')",
+                        "background-size":"cover"
+                    };
+                    break;
+
+                
+                }
+                default:
+                vm.weatherBackground={
+                    "background":"url('https://i.ytimg.com/vi/BQxBh-Oen1w/maxresdefault.jpg')",
+                    "background-size":"cover"
+                };
+            }
+
         });
 
     });
